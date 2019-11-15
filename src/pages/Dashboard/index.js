@@ -1,20 +1,51 @@
-import React from 'react'
-import './styles.css'
+import React, { useState, useEffect } from "react";
+import "./styles.css";
 
-import WidgetSmall from '../../components/Widgets/small'
+import WidgetSmall from "../../components/Widgets/small";
+
+import WeatherService from "../../services/WeatherService";
+import PictureService from "../../services/PictureService";
+
+const initialWeather = {
+  city: "city",
+  description: "weather",
+  temperature: { temp: 0, min: 0, max: 0 }
+};
 
 export default function Dashboard() {
+  const [weather, setWeather] = useState(initialWeather);
+  const [weatherPicture, setWeatherPicture] = useState("");
+  const [hour, setHour] = useState("00:00");
+
+  useEffect(() => {
+    const weatherData = WeatherService.fetch();
+    weatherData.then(data => {
+      setWeather(data); // salva os dados do clima
+      // busca uma imagem relacionada ao clima
+      PictureService.getPictureFromKeyword(data.description).then(picture => {
+        setWeatherPicture(picture);
+      });
+    });
+  }, []);
+
+  useEffect(() => {
+    setInterval(() => {
+      const date = new Date();
+      setHour(`${date.getHours()}:${date.getMinutes()}`);
+    }, 1000);
+  }, []);
+
   return (
     <div className="page-container">
       <nav className="navbar-container">Navbar</nav>
       <div className="body-container">
         <div className="row first">
           <WidgetSmall
-            title="Sunny"
-            bodyLeft="26º/13º"
-            bodyRight="09:30"
-            footer="Curitiba - PR"
-            backgroundSource="https://picsum.photos/id/866/300/150"
+            title={weather.description}
+            bodyLeft={`${weather.temperature.min}º /${weather.temperature.max}º`}
+            bodyRight={hour}
+            footer={weather.city}
+            backgroundSource={weatherPicture}
           />
           <WidgetSmall
             title="BTC"
@@ -55,5 +86,5 @@ export default function Dashboard() {
         </div>
       </div>
     </div>
-  )
+  );
 }
