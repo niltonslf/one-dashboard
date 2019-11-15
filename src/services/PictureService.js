@@ -2,7 +2,6 @@ import Unsplash, { toJson } from "unsplash-js";
 
 class PictureService {
   constructor() {
-    // FIXME: Adicionar api key num arquivo .env
     this.unsplash = new Unsplash({
       accessKey: process.env.REACT_APP_UNSPLASH_ACCESS_KEY
     });

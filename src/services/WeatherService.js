@@ -2,7 +2,7 @@ import axios from "axios";
 
 class WeatherService {
   constructor() {
-    this.key = process.env.REACT_APP_WEATHER_KEY; // FIXME: Adiciona key num arquivo .env
+    this.key = process.env.REACT_APP_WEATHER_KEY;
     // Criar forma de obter as coordenadas do usuário logado
     this.coords = {
       lon: -49.290821,
