@@ -7,3 +7,32 @@
     color: white;
     border-bottom: 2px solid var(--color-primary);
 }
+
+.bill-date {
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+    text-align: left;
+}
+
+.bill-day {
+    font-size: 18px;
+}
+
+.bill-day-week {
+    font-size: 11px;
+    opacity: 0.7;
+}
+
+.bill-type {
+    background: var(--color-green);
+    padding: 3px 10px;
+    border-radius: 15px;
+    font-size: 11px;
+    text-transform: uppercase;
+}
+
+.bill-value,
+.bill-name {
+    font-weight: bold;
+}
