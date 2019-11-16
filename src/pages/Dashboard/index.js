@@ -4,6 +4,7 @@ import "./styles.css";
 import WidgetSmall from "../../components/Widgets/small";
 import CalendarWidget from "../../components/Widgets/CalendarWidget";
 import TaskWidget from "../../components/Widgets/TaskWidget";
+import BillsWidget from "../../components/Widgets/BillsWidget";
 
 import WeatherService from "../../services/WeatherService";
 import PictureService from "../../services/PictureService";
@@ -77,7 +78,7 @@ export default function Dashboard() {
         <div className="row second">
           <CalendarWidget />
           <TaskWidget />
-          <div className="widget-default">Widget</div>
+          <BillsWidget />
         </div>
 
         <div className="row third">

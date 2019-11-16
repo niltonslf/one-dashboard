@@ -2,8 +2,11 @@ import React, { useState } from "react";
 import "./index.css";
 
 import DefaultWidget from "../DefaultWidget";
+import Check from "../../Buttons/Check";
+import Delete from "../../Buttons/Delete";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheck, faTrash, faTasks } from "@fortawesome/free-solid-svg-icons";
+import { faTasks } from "@fortawesome/free-solid-svg-icons";
 
 export default function TaskWidget() {
   const [tasks] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
@@ -20,12 +23,8 @@ export default function TaskWidget() {
               </div>
               <span className="task-name">Clear the house</span>
               <div className="task-actions">
-                <span className="task-done">
-                  <FontAwesomeIcon icon={faCheck} />
-                </span>
-                <span className="task-delete">
-                  <FontAwesomeIcon icon={faTrash} />
-                </span>
+                <Check />
+                <Delete />
               </div>
             </li>
           );
