@@ -1,6 +1,8 @@
 import axios from "axios";
 import { process } from "ipaddr.js";
 
+console.log(process.env.NODE_ENV);
+
 class BillService {
   constructor() {
     this.key = process.env.REACT_APP_ORGANIZZE_KEY;
