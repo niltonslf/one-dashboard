@@ -1,7 +1,7 @@
 import axios from "axios";
 import { process } from "ipaddr.js";
 
-console.log(process.env.NODE_ENV);
+console.log(process.env);
 
 class BillService {
   constructor() {
