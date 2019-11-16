@@ -1,0 +1,36 @@
+.widget-default {
+    background: var(--color-secondary);
+    width: 100%;
+    border-radius: 15px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    max-height: 350px;
+}
+
+.widget-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    height: 40px;
+    border-bottom: 2px solid var(--color-primary);
+    margin-bottom: 5px;
+}
+
+.widget-header h2 {
+    color: white;
+    text-transform: uppercase;
+}
+
+.widget-header .icon {
+    color: white;
+    font-size: 20px;
+}
+
+.widget-body {
+    padding: 10px;
+    flex: 1;
+    overflow-y: auto;
+    margin-bottom: 15px;
+}

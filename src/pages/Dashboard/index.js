@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./styles.css";
 
 import WidgetSmall from "../../components/Widgets/small";
+import CalendarWidget from "../../components/Widgets/CalendarWidget";
 
 import WeatherService from "../../services/WeatherService";
 import PictureService from "../../services/PictureService";
@@ -73,8 +74,7 @@ export default function Dashboard() {
         </div>
 
         <div className="row second">
-          <div className="widget-default">Widget</div>
-          <div className="widget-default">Widget</div>
+          <CalendarWidget />
           <div className="widget-default">Widget</div>
           <div className="widget-default">Widget</div>
         </div>
