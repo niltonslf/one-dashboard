@@ -1,0 +1,9 @@
+.bill {
+    margin-bottom: 10px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    border-bottom: 2px solid var(--color-primary);
+}

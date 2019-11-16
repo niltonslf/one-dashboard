@@ -1,0 +1,16 @@
+.button {
+    width: 30px;
+    height: 30px;
+    margin: 5px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    cursor: pointer;
+    box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0.5);
+}
+
+.--check {
+    background: var(--color-green);
+}
