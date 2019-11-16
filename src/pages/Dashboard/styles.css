@@ -11,7 +11,7 @@
 
 .body-container {
     display: grid;
-    grid-template-rows: 110px auto 1fr;
+    grid-template-rows: 110px 1fr;
     grid-gap: 15px;
     padding: 15px;
 }
@@ -29,16 +29,4 @@
 
 .second {
     grid-template-columns: 1.5fr 1.3fr 2fr;
-}
-
-.third {
-    grid-template-columns: 1fr 1fr 0.8fr;
-}
-
-
-.widget-default {
-    background: var(--color-secondary);
-    padding: 50px;
-    width: 100%;
-    border-radius: 15px;
 }

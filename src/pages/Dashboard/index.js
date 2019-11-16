@@ -80,12 +80,6 @@ export default function Dashboard() {
           <TaskWidget />
           <BillsWidget />
         </div>
-
-        <div className="row third">
-          <div className="widget-default">Widget</div>
-          <div className="widget-default">Widget</div>
-          <div className="widget-default">Widget</div>
-        </div>
       </div>
     </div>
   );

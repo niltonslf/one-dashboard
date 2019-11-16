@@ -14,9 +14,9 @@ export default function CalendarWidget() {
       icon={<FontAwesomeIcon icon={faCalendar} />}
     >
       <ul className="calendar-container">
-        {events.map(event => {
+        {events.map((event, index) => {
           return (
-            <li className="event">
+            <li className="event" key={index}>
               <span className="event-day-number">15</span>
               <div className="event-date">
                 <span>November</span>
