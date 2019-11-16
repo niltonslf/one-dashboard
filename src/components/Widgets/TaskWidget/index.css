@@ -1,0 +1,49 @@
+.task-container {}
+
+.task {
+    margin-bottom: 10px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    border-bottom: 2px solid var(--color-primary);
+
+}
+
+.task-date {
+    display: flex;
+    flex-direction: column;
+}
+
+.task-hour {
+    font-size: 17px;
+}
+
+.task-day {
+    font-size: 10px;
+    opacity: 0.7;
+}
+
+.task-actions {
+    display: flex;
+}
+
+.task-done,
+.task-delete {
+    width: 30px;
+    height: 30px;
+    background: var(--color-green);
+    margin: 5px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    cursor: pointer;
+    box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0.5);
+}
+
+.task-delete {
+    background: var(--color-pink);
+}
