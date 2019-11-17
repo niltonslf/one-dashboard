@@ -10,11 +10,11 @@ import Check from "../../Buttons/Check";
 import BillService from "../../../services/BillService";
 
 export default function BillsWidget() {
-  const [bills] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+  const [bills, setBills] = useState([{}]);
 
   useEffect(() => {
     BillService.fetchBills().then(bills => {
-      console.log(bills);
+      setBills(bills)
     });
   }, []);
 
@@ -25,12 +25,14 @@ export default function BillsWidget() {
           return (
             <li className="bill" key={index}>
               <div className="bill-date">
-                <span className="bill-day">10/11</span>
+                <span className="bill-day">{bill.date}</span>
                 <span className="bill-day-week">Friday</span>
               </div>
-              <span className="bill-type">Income</span>
-              <span className="bill-value">1300,00</span>
-              <span className="bill-name">Aluguel</span>
+              <span className="bill-type">
+                <span className="tag">Income</span>
+              </span>
+              <span className="bill-value">{bill.amount_cents}</span>
+              <span className="bill-name">{bill.description}</span>
               <div className="bill-acions">
                 <span className="bill-paid">
                   <Check />
