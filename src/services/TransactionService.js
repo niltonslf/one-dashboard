@@ -21,8 +21,10 @@ class TransactionService {
   /**
    *
    */
-  async payTransaction(id) {
-    const response = await this.axios.put(`/transactions/${id}/pay`);
+  async togglePaymentStatus(id, isPaid) {
+    const response = await this.axios.put(`/transactions/${id}/pay`, {
+      isPaid
+    });
     if (response.data.success) return response.data.body;
     return undefined;
   }

@@ -11,7 +11,7 @@ import {
 
 import DefaultWidget from "../DefaultWidget";
 
-import { Success, Danger, Button } from "../../Buttons";
+import { Button } from "../../Buttons";
 
 import TransactionService from "../../../services/TransactionService";
 
@@ -28,8 +28,8 @@ export default function TransactionWidget() {
     });
   }
 
-  async function payTransaction(id) {
-    const response = await TransactionService.payTransaction(id);
+  async function payTransaction(id, isPaid) {
+    const response = await TransactionService.togglePaymentStatus(id, !isPaid);
     if (response) fetchTransactions();
   }
 
@@ -46,14 +46,20 @@ export default function TransactionWidget() {
                 <span className="bill-day-week">{bill.weekday}</span>
               </div>
               <span className="bill-type">
-                <span className="tag">{bill.type}</span>
+                <span
+                  className={`tag ${
+                    bill.type == "expense" ? "--pink" : "--green"
+                  }`}
+                >
+                  {bill.type}
+                </span>
               </span>
               <span className="bill-value">R$ {bill.price}</span>
               <span className="bill-name">{bill.description}</span>
               <div className="bill-acions">
                 <span
                   className="bill-paid"
-                  onClick={() => payTransaction(bill.id)}
+                  onClick={() => payTransaction(bill.id, bill.paid)}
                 >
                   {!bill.paid ? (
                     <Button
