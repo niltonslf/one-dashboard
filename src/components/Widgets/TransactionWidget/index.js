@@ -7,17 +7,27 @@ import { faMoneyBill } from "@fortawesome/free-solid-svg-icons";
 
 import DefaultWidget from "../DefaultWidget";
 import Check from "../../Buttons/Check";
+import Delete from "../../Buttons/Delete";
 
-import BillService from "../../../services/BillService";
+import TransactionService from "../../../services/TransactionService";
 
-export default function BillsWidget() {
+export default function TransactionWidget() {
   const [bills, setBills] = useState([{}]);
 
   useEffect(() => {
-    BillService.fetchBills().then(bills => {
+    fetchTransactions();
+  }, []);
+
+  function fetchTransactions() {
+    TransactionService.fetchTransactions().then(bills => {
       setBills(bills);
     });
-  }, []);
+  }
+
+  async function payTransaction(id) {
+    const response = await TransactionService.payTransaction(id);
+    if (response) fetchTransactions();
+  }
 
   return (
     <DefaultWidget title="Bills" icon={<FontAwesomeIcon icon={faMoneyBill} />}>
@@ -37,11 +47,12 @@ export default function BillsWidget() {
               <span className="bill-value">R$ {bill.price}</span>
               <span className="bill-name">{bill.description}</span>
               <div className="bill-acions">
-                {!bill.paid && (
-                  <span className="bill-paid">
-                    <Check />
-                  </span>
-                )}
+                <span
+                  className="bill-paid"
+                  onClick={() => payTransaction(bill.id)}
+                >
+                  {!bill.paid ? <Check /> : <Delete />}
+                </span>
               </div>
             </li>
           );
