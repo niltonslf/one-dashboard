@@ -40,7 +40,7 @@ export default function Dashboard() {
 
   return (
     <div className="page-container">
-      <nav className="navbar-container">Navbar</nav>
+      {/* <nav className="navbar-container">Navbar</nav> */}
       <div className="body-container">
         <div className="row first">
           <WidgetSmall

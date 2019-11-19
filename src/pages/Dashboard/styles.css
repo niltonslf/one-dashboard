@@ -1,12 +1,8 @@
 .page-container {
     height: 100vh;
     display: grid;
-    grid-template-columns: 100px auto;
+    grid-template-columns: auto;
     background: var(--color-primary);
-}
-
-.navbar-container {
-    background: var(--color-secondary);
 }
 
 .body-container {
