@@ -4,7 +4,7 @@ import "./styles.css";
 import WidgetSmall from "../../components/Widgets/small";
 import CalendarWidget from "../../components/Widgets/CalendarWidget";
 import TaskWidget from "../../components/Widgets/TaskWidget";
-import BillsWidget from "../../components/Widgets/BillsWidget";
+import TransactionWidget from "../../components/Widgets/TransactionWidget";
 
 import WeatherService from "../../services/WeatherService";
 import PictureService from "../../services/PictureService";
@@ -40,7 +40,7 @@ export default function Dashboard() {
 
   return (
     <div className="page-container">
-      <nav className="navbar-container">Navbar</nav>
+      {/* <nav className="navbar-container">Navbar</nav> */}
       <div className="body-container">
         <div className="row first">
           <WidgetSmall
@@ -78,13 +78,7 @@ export default function Dashboard() {
         <div className="row second">
           <CalendarWidget />
           <TaskWidget />
-          <BillsWidget />
-        </div>
-
-        <div className="row third">
-          <div className="widget-default">Widget</div>
-          <div className="widget-default">Widget</div>
-          <div className="widget-default">Widget</div>
+          <TransactionWidget />
         </div>
       </div>
     </div>

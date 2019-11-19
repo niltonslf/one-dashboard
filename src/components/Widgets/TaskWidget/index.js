@@ -14,9 +14,9 @@ export default function TaskWidget() {
   return (
     <DefaultWidget title="Tasks">
       <ul className="task-container" icon={<FontAwesomeIcon icon={faTasks} />}>
-        {tasks.map(task => {
+        {tasks.map((task, index) => {
           return (
-            <li className="task">
+            <li className="task" key={index}>
               <div className="task-date">
                 <span className="task-hour">4:00PM</span>
                 <span className="task-day">15/10 - Friday</span>
