@@ -37,9 +37,11 @@ export default function BillsWidget() {
               <span className="bill-value">R$ {bill.price}</span>
               <span className="bill-name">{bill.description}</span>
               <div className="bill-acions">
-                <span className="bill-paid">
-                  <Check />
-                </span>
+                {!bill.paid && (
+                  <span className="bill-paid">
+                    <Check />
+                  </span>
+                )}
               </div>
             </li>
           );
