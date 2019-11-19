@@ -3,11 +3,15 @@ import "./index.css";
 
 import moment from "moment";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMoneyBill } from "@fortawesome/free-solid-svg-icons";
+import {
+  faMoneyBill,
+  faCheck,
+  faTimes
+} from "@fortawesome/free-solid-svg-icons";
 
 import DefaultWidget from "../DefaultWidget";
-import Check from "../../Buttons/Check";
-import Delete from "../../Buttons/Delete";
+
+import { Success, Danger, Button } from "../../Buttons";
 
 import TransactionService from "../../../services/TransactionService";
 
@@ -51,7 +55,17 @@ export default function TransactionWidget() {
                   className="bill-paid"
                   onClick={() => payTransaction(bill.id)}
                 >
-                  {!bill.paid ? <Check /> : <Delete />}
+                  {!bill.paid ? (
+                    <Button
+                      color="green"
+                      icon={<FontAwesomeIcon icon={faCheck} />}
+                    />
+                  ) : (
+                    <Button
+                      color="pink"
+                      icon={<FontAwesomeIcon icon={faTimes} />}
+                    />
+                  )}
                 </span>
               </div>
             </li>
